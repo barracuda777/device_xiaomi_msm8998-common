@@ -160,9 +160,17 @@ PRODUCT_PACKAGES += \
 
 # Weather Providers
 PRODUCT_PACKAGES += \
-    NominatimNlpBackend \
-    WundergroundWeatherProvider \
     OpenWeatherMapProvider
+
+# MicroG
+PRODUCT_PACKAGES += \
+    DroidGuard \
+    FakeStore \
+    FDroid \
+    GmsCore \
+    GsfProxy \
+    MozillaNlpBackend \
+    NominatimNlpBackend
 
 # DRM
 PRODUCT_PACKAGES += \
