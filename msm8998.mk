@@ -158,6 +158,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiDoze
 
+# Build openweather
+    OpenWeatherMapProvider
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
