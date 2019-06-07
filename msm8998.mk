@@ -159,8 +159,8 @@ PRODUCT_PACKAGES += \
     XiaomiDoze
 
 # Build openweather
-#PRODUCT_PACKAGES += \
-#    OpenWeatherMapProvider
+PRODUCT_PACKAGES += \
+    OpenWeatherMapProvider
 
 # DRM
 PRODUCT_PACKAGES += \
