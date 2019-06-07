@@ -93,14 +93,14 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.msm8998 \
     audio.r_submix.default \
-    audio.usb.default \
+    audio.usb.default
 
 PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libvolumelistener \
+    libvolumelistener
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.effect@4.0-impl \
