@@ -93,14 +93,14 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.msm8998 \
     audio.r_submix.default \
-    audio.usb.default
+    audio.usb.default \
 
 PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libvolumelistener
+    libvolumelistener \
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.effect@4.0-impl \
@@ -161,6 +161,11 @@ PRODUCT_PACKAGES += \
 # Build openweather
 PRODUCT_PACKAGES += \
     OpenWeatherMapProvider
+
+# Device mapper verity
+PRODUCT_SYSTEM_VERITY_PARTITION=/dev/block/bootdevice/by-name/system
+PRODUCT_VENDOR_VERITY_PARTITION=/dev/block/bootdevice/by-name/cust
+$(call inherit-product, build/target/product/verity.mk)
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -280,10 +285,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.xiaomi_msm8998-libperfmgr
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/power-libperfmgr/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    android.hardware.power@1.1-service-qti
 
 # Properties
 include $(LOCAL_PATH)/vendor_prop.mk
@@ -303,7 +305,6 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
-    init.target.performance.rc \
     init.target.rc \
     ueventd.qcom.rc
 
@@ -327,6 +328,8 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.radio@1.2 \
+    android.hardware.radio.config@1.0 \
     libril-wrapper \
     librmnetctl
 

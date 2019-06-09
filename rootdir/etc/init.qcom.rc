@@ -26,7 +26,6 @@
 #
 
 import /vendor/etc/init/hw/init.qcom.usb.rc
-import /vendor/etc/init/hw/init.target.performance.rc
 import /vendor/etc/init/hw/init.target.rc
 
 on early-init
@@ -301,7 +300,7 @@ service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     group radio cache inet misc audio sdcard_r sdcard_rw diag log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service charger /charger
+service charger /sbin/chargeonlymode
     class charger
     group system graphics
     seclabel u:r:healthd:s0
