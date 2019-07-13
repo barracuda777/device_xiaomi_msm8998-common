@@ -50,7 +50,7 @@ on post-fs-data
     # Create directory for apps access via QTEEConnector
     mkdir /data/vendor/qtee 0770 system system
 
-    #Create folder of camera
+    # Create folder of camera
     mkdir /data/vendor/camera 0770 camera camera
 
     setprop persist.camera.stats.test 5
@@ -79,7 +79,7 @@ on post-fs-data
     # Create ipacm log dir
     mkdir /data/vendor/ipa 0770 radio radio
 
-    #Create QTI dir for logs
+    # Create QTI dir for logs
     mkdir /data/vendor/dataqti 0770 radio radio
 
     # Create the directories used by CnE subsystem

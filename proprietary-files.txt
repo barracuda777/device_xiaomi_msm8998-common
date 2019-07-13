@@ -29,6 +29,13 @@ vendor/bin/power_off_alarm
 vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 
+# ANT+ - from LA.UM.7.2.r1-06900-sdm660.0
+-lib/libantradio.so|b6b7b93dfa155de37d755542a0d66cc9f77e256c
+lib64/com.qualcomm.qti.ant@1.0.so|33d353a1077c70c3d7c013938b092e93a18d5b58
+-lib64/libantradio.so|def8c83cab05b53fe70754f23cf475240a8358fd
+vendor/lib64/com.qualcomm.qti.ant@1.0.so|5779ba85ae23ede7552a768afb8042d72f71afe2
+vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so|94729946e6ba94dd5d24c0495661efadc7ab782e
+
 # Audio libraries
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
@@ -45,20 +52,16 @@ vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 
 # Bluetooth
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbtnv.so
 
-# Bluetooth ANT
-lib64/com.qualcomm.qti.ant@1.0.so:vendor/lib64/com.qualcomm.qti.ant@1.0.so
+# Bluetooth - from LA.UM.7.2.r1-06900-sdm660.0
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|514226960669db32e44a9457e6de7c07ac70ec1b
 
 # Bluetooth aptX(HD) - from Google Pixel 2 XL PQ1A.190105.004
 lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
 lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
-
-# Bluetooth FM
-lib64/vendor.qti.hardware.fm@1.0.so:vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
 # Camera
 lib/libMiCameraHal.so:vendor/lib/libMiCameraHal.so
@@ -237,10 +240,21 @@ vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libGPreqcancel.so
+vendor/lib64/libkeymasterdeviceutils.so
+vendor/lib64/libkeymasterprovision.so
+vendor/lib64/libkeymasterutils.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
+vendor/lib64/libStDrvInt.so
+vendor/lib64/libsecureui_svcsock.so
+vendor/lib64/libSecureUILib.so
 vendor/lib64/libspl.so
 vendor/lib64/libssd.so
+
+# DRM (TUI)
+lib64/vendor.qti.hardware.tui_comm@1.0.so:vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
+vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 
 # DRM (Widevine)
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine
@@ -400,11 +414,28 @@ vendor/lib/libvqzip.so
 -vendor/lib64/libgpustats.so
 
 # Mlipay
+lib64/vendor.xiaomi.hardware.mfidoca@1.0.so:vendor/lib64/vendor.xiaomi.hardware.mfidoca@1.0.so
 lib64/vendor.xiaomi.hardware.mlipay@1.0.so:vendor/lib64/vendor.xiaomi.hardware.mlipay@1.0.so
 lib64/vendor.xiaomi.hardware.mlipay@1.1.so:vendor/lib64/vendor.xiaomi.hardware.mlipay@1.1.so
+lib64/vendor.xiaomi.hardware.mtdservice@1.0.so:vendor/lib64/vendor.xiaomi.hardware.mtdservice@1.0.so
+lib64/vendor.xiaomi.hardware.mtdservice@1.1.so:vendor/lib64/vendor.xiaomi.hardware.mtdservice@1.1.so
+lib64/vendor.xiaomi.hardware.mtdservice@1.2.so:vendor/lib64/vendor.xiaomi.hardware.mtdservice@1.2.so
+lib64/vendor.xiaomi.hardware.tidaservice@1.0.so:vendor/lib64/vendor.xiaomi.hardware.tidaservice@1.0.so
+lib64/vendor.xiaomi.hardware.tidaservice@1.1.so:vendor/lib64/vendor.xiaomi.hardware.tidaservice@1.1.so
+vendor/bin/fidoca
 vendor/bin/mlipayd@1.1
+vendor/bin/mtd@1.2
+vendor/bin/tidad@1.1
+vendor/etc/init/vendor.xiaomi.hardware.mfidoca@1.0-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
+vendor/etc/init/vendor.xiaomi.hardware.mtdservice@1.2-service.rc
+vendor/etc/init/vendor.xiaomi.hardware.tidaservice@1.1-service.rc
+vendor/lib64/libmfido.so
+vendor/lib64/libmlipay.so
 vendor/lib64/libmlipay@1.1.so
+vendor/lib64/libmt.so
+vendor/lib64/libmt@1.2.so
+vendor/lib64/libtida@1.1.so
 
 # NFC firmware
 vendor/firmware/libpn553_fw.so:vendor/lib/libpn553_fw.so
@@ -548,10 +579,10 @@ vendor/lib64/sensors.ssc.so
 
 # Soter
 -app/SoterService/SoterService.apk
-lib64/vendor.qti.hardware.soter@1.0.so:vendor/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
 vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
+lib64/vendor.qti.hardware.soter@1.0.so:vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Thermal
 vendor/bin/thermal-engine

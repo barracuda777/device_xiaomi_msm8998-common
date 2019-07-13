@@ -67,7 +67,7 @@ PRODUCT_COPY_FILES += \
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
@@ -93,14 +93,14 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.msm8998 \
     audio.r_submix.default \
-    audio.usb.default \
+    audio.usb.default
 
 PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libvolumelistener \
+    libvolumelistener
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.effect@4.0-impl \
@@ -124,6 +124,14 @@ PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml
 
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService \
+    com.dsi.ant.antradio_library
+
+PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
+
 # Camera
 PRODUCT_PACKAGES += \
     Snap
@@ -131,8 +139,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0_32 \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
-    libbinder_vendor
+    android.hardware.camera.provider@2.4-service
 
 # Display
 PRODUCT_PACKAGES += \
@@ -175,7 +182,8 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_msm8998
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_msm8998 \
+    move_fingerprint_data.sh
 
 # For config.fs
 PRODUCT_PACKAGES += \
@@ -188,7 +196,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    libgnss
+    libgnss \
+    libgnsspps
 
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl-qti \
@@ -292,7 +301,7 @@ include $(LOCAL_PATH)/vendor_prop.mk
 
 # QCOM
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-qti.xml \
+    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
 
 # QMI
@@ -328,8 +337,6 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.2 \
-    android.hardware.radio.config@1.0 \
     libril-wrapper \
     librmnetctl
 
@@ -365,7 +372,7 @@ PRODUCT_PACKAGES += \
 
 # VNDK
 PRODUCT_PACKAGES += \
-    vndk_package
+    vndk-sp
 
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
@@ -377,6 +384,7 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml \
     libwpa_client \
     hostapd \
+    readmac \
     wpa_supplicant \
     wpa_supplicant.conf
 

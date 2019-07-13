@@ -170,8 +170,6 @@
         <device name="SND_DEVICE_OUT_SPEAKER_AND_HDMI" backend="speaker-and-hdmi" interface="QUAT_MI2S_RX-and-HDMI"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_DISPLAY_PORT" backend="speaker-and-display-port" interface="QUAT_MI2S_RX-and-DISPLAY_PORT"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP" backend="speaker-and-bt-a2dp" interface="QUAT_MI2S_RX-and-SLIMBUS_7_RX"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO" backend="speaker-and-bt-sco" interface="QUAT_MI2S_RX-and-SLIMBUS_7_RX"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB" backend="speaker-and-bt-sco-wb" interface="QUAT_MI2S_RX-and-SLIMBUS_7_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET" backend="speaker-and-usb-headphones" interface="QUAT_MI2S_RX-and-USB_AUDIO_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_ANC_HEADSET" backend="headphones" interface="SLIMBUS_6_RX"/>
@@ -554,3 +552,4 @@
         </input_snd_device>
     </snd_devices>
 </audio_platform_info>
+

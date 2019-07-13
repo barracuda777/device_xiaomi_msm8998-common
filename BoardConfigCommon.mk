@@ -55,6 +55,9 @@ BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware_mnt/image
 # Platform
 TARGET_BOARD_PLATFORM := msm8998
 
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+
 # Assert
 TARGET_BOARD_INFO_FILE := $(PLATFORM_PATH)/board-info.txt
 
@@ -204,8 +207,6 @@ BOARD_KERNEL_CMDLINE += dm=\"system none ro,0 1 android-verity /dev/sde43\"
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-BOARD_VNDK_RUNTIME_DISABLE := true
-BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Wifi

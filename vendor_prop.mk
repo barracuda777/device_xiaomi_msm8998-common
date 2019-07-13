@@ -31,7 +31,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.fluence.voicerec=false \
     persist.vendor.audio.ras.enabled=false \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
-    ro.af.client_heap_size_kbyte=7168 \
+    ro.config.media_vol_steps=25 \
     ro.config.vc_call_vol_steps=11 \
     ro.vendor.audio.sdk.fluencetype=fluence \
     ro.vendor.audio.sdk.ssr=false \
@@ -63,6 +63,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.xm.green.b=0.96 \
     persist.camera.xm.green.r=0.97 \
+    persist.ts.rtmakeup=false \
     persist.vendor.camera.HAL3.enabled=1 \
     persist.vendor.camera.set.afd=4 \
     persist.vendor.dualcam.lpm.enable=1 \
@@ -90,6 +91,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.dpm.feature=1 \
     persist.vendor.dpm.nsrm.bkg.evt=3955
+
+# Enforce privapp-permissions whitelist
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.control_privapp_permissions=enforce
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -131,7 +136,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.dynamic_sar=false \
     persist.radio.multisim.config=dsds \
     persist.rmnet.data.enable=true \
@@ -152,11 +156,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.sensors.cfos=false \
-    persist.sys.sensors.pug=false \
-    persist.sys.sensors.spg=false \
     ro.qti.sensors.taptap_gesture=true \
     ro.vendor.sdk.sensors.gestures=false \
+    ro.vendor.sensors.cfos=false \
     ro.vendor.sensors.cmc=false \
     ro.vendor.sensors.dev_ori=false \
     ro.vendor.sensors.dpc=true \
@@ -165,6 +167,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sensors.mot_detect=true \
     ro.vendor.sensors.multishake=true \
     ro.vendor.sensors.pmd=false \
+    ro.vendor.sensors.pug=true \
+    ro.vendor.sensors.spg=false \
     ro.vendor.sensors.sta_detect=true
 
 # Time services
