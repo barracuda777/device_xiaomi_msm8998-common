@@ -11,7 +11,7 @@ for FPS in $FPS_NAMES; do
   DEST_PATH="/data/vendor/$FPS"
   FILES_MOVED="/data/vendor/$FPS/moved"
   SRC_PATH="/data/misc/$FPS"
-  if [[ -d "$SRC_PATH" && ! -f "$FILES_MOVED" ]]; then
+  if [ ! -f "$FILES_MOVED" ]; then
     for i in "$SRC_PATH/"*; do
       dest_path=$DEST_PATH/"${i#$SRC_PATH/}"
       mv $i "$dest_path"
