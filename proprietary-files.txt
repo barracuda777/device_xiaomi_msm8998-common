@@ -380,6 +380,7 @@ lib64/vendor.qti.hardware.radio.ims@1.0.so:vendor/lib64/vendor.qti.hardware.radi
 lib64/vendor.qti.ims.callinfo@1.0.so:vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 lib64/vendor.qti.ims.rcsconfig@1.0.so:vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
 lib64/vendor.qti.imsrtpservice@1.0.so
+-priv-app/ims/ims.apk|71b2daa01887c75301f8b73ad47317c29392d383
 vendor/bin/ims_rtp_daemon
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
@@ -399,9 +400,6 @@ vendor/lib64/lib-siputility.so
 vendor/lib64/lib-uceservice.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0.so
-
-# IMS - from mata QP1A.190711.107
--app/ims/ims.apk|0f1e907bb3a0c2631f54310860711aa955710bfc
 
 # IPA
 vendor/firmware/ipa_fws.b00
@@ -539,6 +537,7 @@ lib64/vendor.qti.hardware.radio.uim@1.0.so:vendor/lib64/vendor.qti.hardware.radi
 lib64/vendor.qti.hardware.radio.uim@1.1.so:vendor/lib64/vendor.qti.hardware.radio.uim@1.1.so
 lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so:vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so:vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/ATFWD-daemon
 vendor/bin/netmgrd
 vendor/bin/qti
@@ -575,9 +574,6 @@ vendor/radio/qcril_database/qcril.db
 vendor/radio/qcril_database/upgrade/0_initial.sql
 vendor/radio/qcril_database/upgrade/1_version_intro.sql
 vendor/radio/qcril_database/upgrade/5_version_intro.sql
-
-# RIL - from mata QP1A.190711.107
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|956a4017d0ba7f68e6d225e57b40d3b2bcbb4837
 
 # Sensors
 vendor/bin/sensors.qti
@@ -659,4 +655,3 @@ vendor/lib/libwfdhaldsmanager.so
 vendor/lib/libwfdhdcpcp.so
 vendor/lib/libwfdmmservice.so
 vendor/lib/libwfdmodulehdcpsession.so
-
