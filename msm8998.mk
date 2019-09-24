@@ -159,7 +159,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     android.hardware.renderscript@1.0-impl
@@ -167,11 +167,6 @@ PRODUCT_PACKAGES += \
 # Doze
 PRODUCT_PACKAGES += \
     XiaomiDoze
-
-# Device mapper verity
-PRODUCT_SYSTEM_VERITY_PARTITION=/dev/block/bootdevice/by-name/system
-PRODUCT_VENDOR_VERITY_PARTITION=/dev/block/bootdevice/by-name/cust
-$(call inherit-product, build/target/product/verity.mk)
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -224,7 +219,8 @@ PRODUCT_PACKAGES += \
 
 # IMS
 PRODUCT_PACKAGES += \
-    ims-ext-common
+    ims-ext-common \
+    ims_ext_common.xml
 
 # IRQ
 PRODUCT_COPY_FILES += \
@@ -351,7 +347,9 @@ PRODUCT_PACKAGES += \
 
 # Telephony
 PRODUCT_PACKAGES += \
-    telephony-ext
+    telephony-ext \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
