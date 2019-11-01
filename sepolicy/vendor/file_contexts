@@ -1,5 +1,8 @@
+# Amplifier
+/(vendor|system/vendor)/bin/tinymix                           u:object_r:vendor_tinyalsa_exec:s0
+
 # DRM
-/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.0-service\.widevine         u:object_r:hal_drm_widevine_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine u:object_r:hal_drm_widevine_exec:s0
 
 # Fingerprint
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_msm8998 u:object_r:hal_fingerprint_default_exec:s0
@@ -13,16 +16,8 @@
 /sys/devices/soc/soc:fingerprint_fpc(/.*)?                    u:object_r:fingerprint_sysfs:s0
 /system/bin/move_fingerprint_data\.sh                         u:object_r:move-fp-data-sh_exec:s0
 
-# Firmware
-/firmware                                                     u:object_r:firmware_file:s0
-/bt_firmware                                                  u:object_r:bt_firmware_file:s0
-
 # HVDCP
 /sys/devices(/platform)?/soc/[a-z0-9]+\.i2c/i2c-[0-9]+/[0-9]+-[a-z0-9]+/[a-z0-9]+\.i2c:qcom,[a-z0-9]+@[a-z0-9]:qcom,smb[a-z0-9]+-parallel-slave@[0-9]+/power_supply/parallel(/.*)? u:object_r:sysfs_usb_supply:s0
-
-# Input devices
-/(vendor|system/vendor)/usr/idc(/.*)?                         u:object_r:idc_file:s0
-/(vendor|system/vendor)/usr/keylayout(/.*)?                   u:object_r:keylayout_file:s0
 
 # Light HAL
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_msm8998 u:object_r:hal_light_default_exec:s0
