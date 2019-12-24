@@ -314,7 +314,8 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     init.target.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    init.target.performance.rc
 
 PRODUCT_PACKAGES += \
     init.panel_info.sh \
