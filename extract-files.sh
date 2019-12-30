@@ -59,33 +59,45 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+    lib64/libwfdnative.so)
+        patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
+        ;;
     vendor/etc/init/vendor.xiaomi.hardware.mtdservice@1.2-service.rc)
         sed -i '/group/ i\    user system' "${2}"
         ;;
     vendor/etc/permissions/qti_libpermissions.xml)
         sed -i 's|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g' "${2}"
         ;;
-    vendor/lib/libMiCameraHal.so)
-        sed -i 's/libicuuc.so/libicuuQ.so/g' "${2}"
-        sed -i 's/libminikin.so/libminikiQ.so/g' "${2}"
-        ;;
-    vendor/lib/libminikiQ.so)
-        sed -i 's/libminikin.so/libminikiQ.so/g' "${2}"
-        ;;
-    vendor/lib/libicuuQ.so)
-        sed -i 's/libicuuc.so/libicuuQ.so/g' "${2}"
+    vendor/lib/hw/camera.msm8998.so)
+        patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
         ;;
     vendor/lib/libFaceGrade.so)
         patchelf --remove-needed "libandroid.so" "${2}"
         ;;
+    vendor/lib/libMiCameraHal.so)
+        patchelf --replace-needed "libicuuc.so" "libicuuc-v28.so" "${2}"
+        patchelf --replace-needed "libminikin.so" "libminikin-v28.so" "${2}"
+        ;;
     vendor/lib/libarcsoft_beauty_shot.so)
         patchelf --remove-needed "libandroid.so" "${2}"
+        ;;
+    vendor/lib/libicuuc-v28.so)
+        patchelf --set-soname "libicuuc-v28.so" "${2}"
+        ;;
+    vendor/lib/libminikin-v28.so)
+        patchelf --set-soname "libminikin-v28.so" "${2}"
         ;;
     vendor/lib/libmmcamera2_stats_modules.so)
         patchelf --remove-needed "libandroid.so" "${2}"
         ;;
     vendor/lib/libmpbase.so)
         patchelf --remove-needed "libandroid.so" "${2}"
+        ;;
+    vendor/lib/sensors.ssc.so)
+        sed -i 's/\/persist\/PRSensorData.txt/\/vendor\/etc\/sensors\/S.txt/g' "${2}"
+        ;;
+    vendor/lib64/sensors.ssc.so)
+        sed -i 's/\/persist\/PRSensorData.txt/\/vendor\/etc\/sensors\/S.txt/g' "${2}"
         ;;
     esac
 }

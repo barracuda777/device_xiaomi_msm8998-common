@@ -55,12 +55,6 @@ on post-fs-data
 
     setprop persist.camera.stats.test 5
 
-    # Create directories for tombstones
-    mkdir /data/tombstones/modem 0771 system system
-    mkdir /data/tombstones/lpass 0771 system system
-    mkdir /data/tombstones/wcnss 0771 system system
-    mkdir /data/tombstones/dsps 0771 system system
-
     # Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
     mkdir /data/vendor/tombstones/rfs 0771 system system
@@ -224,7 +218,7 @@ service vendor.cnss-daemon /vendor/bin/cnss-daemon -n -l
     capabilities NET_ADMIN
     writepid /dev/cpuset/system-background/tasks
 
-on property:sys.powerctl=*
+on property:sys.shutdown.requested=*
     stop vendor.cnss-daemon
 
 service vendor.loc_launcher /vendor/bin/loc_launcher
@@ -261,6 +255,7 @@ service charger /system/bin/charger
     class charger
     user system
     group system graphics input
+    capabilities SYS_BOOT
     seclabel u:r:charger:s0
 
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf

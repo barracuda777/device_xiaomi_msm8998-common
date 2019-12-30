@@ -106,11 +106,20 @@ $(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_MAC_SYMLINK)
 
-EGL_SYMLINK := $(TARGET_OUT_VENDOR)/lib/libEGL_adreno.so
+EGL_SYMLINK := $(TARGET_OUT_VENDOR)/lib/libGLESv2_adreno.so
 $(EGL_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@mkdir -p $(dir $@)
 	$(hide) ln -sf egl/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(EGL_SYMLINK)
+
+PERSIST_SENSORS_SYMLINK := $(TARGET_OUT_VENDOR)/etc/sensors/S.txt
+$(PERSIST_SENSORS_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "Sensors calibration file link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /mnt/vendor/persist/PRSensorData.txt $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(PERSIST_SENSORS_SYMLINK)
 
 endif

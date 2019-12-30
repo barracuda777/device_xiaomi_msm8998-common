@@ -45,7 +45,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.compr_cap.enable=false \
     vendor.audio.feature.compress_in.enable=false \
     vendor.audio.feature.compress_meta_data.enable=true \
-    vendor.audio.feature.compr_voip.enable=false \
+    vendor.audio.feature.compr_voip.enable=true \
     vendor.audio.feature.concurrent_capture.enable=false \
     vendor.audio.feature.custom_stereo.enable=true \
     vendor.audio.feature.display_port.enable=true \
@@ -57,9 +57,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.external_speaker_tfa.enable=false \
     vendor.audio.feature.fluence.enable=true \
     vendor.audio.feature.fm.enable=true \
-    vendor.audio.feature.hdmi_edid.enable=true \
-    vendor.audio.feature.hdmi_passthrough.enable=true \
-    vendor.audio.feature.hfp.enable=true \
+    vendor.audio.feature.hdmi_edid.enable=false \
+    vendor.audio.feature.hdmi_passthrough.enable=false \
+    vendor.audio.feature.hfp.enable=false \
     vendor.audio.feature.hifi_audio.enable=false \
     vendor.audio.feature.hwdep_cal.enable=false \
     vendor.audio.feature.incall_music.enable=false \
@@ -70,7 +70,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.ras.enable=true \
     vendor.audio.feature.record_play_concurency.enable=false \
     vendor.audio.feature.src_trkn.enable=true \
-    vendor.audio.feature.spkr_prot.enable=true \
+    vendor.audio.feature.spkr_prot.enable=false \
     vendor.audio.feature.ssrec.enable=false \
     vendor.audio.feature.usb_offload.enable=true \
     vendor.audio.feature.usb_offload_burst_mode.enable=false \
@@ -118,6 +118,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_gl_backpressure=1 \
     debug.sf.enable_hwc_vds=1 \
     debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
@@ -149,27 +150,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0
 
-# Memory
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=256m \
-    dalvik.vm.heapmaxfree=8m \
-    dalvik.vm.heapminfree=4m \
-    dalvik.vm.heapsize=512m \
-    dalvik.vm.heapstartsize=16m \
-    dalvik.vm.heaptargetutilization=0.75
-
-# Network manager
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.netmgrd.qos.enable=true \
-    persist.data.wda.enable=true \
-    persist.data.df.agg.dl_pkt=10 \
-    persist.data.df.agg.dl_size=4096 \
-    persist.data.df.dev_name=rmnet_usb0 \
-    persist.data.df.dl_mode=5 \
-    persist.data.df.iwlan_mux=9 \
-    persist.data.df.mux_count=8 \
-    persist.data.df.ul_mode=5
-
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
@@ -181,7 +161,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.dynamic_sar=false \
     persist.radio.multisim.config=dsds \
-    persist.rmnet.data.enable=true \
     persist.vendor.data.mode=concurrent \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
