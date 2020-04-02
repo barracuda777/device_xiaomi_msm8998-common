@@ -53,8 +53,6 @@ on post-fs-data
     # Create folder of camera
     mkdir /data/vendor/camera 0770 camera camera
 
-    setprop persist.camera.stats.test 5
-
     # Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
     mkdir /data/vendor/tombstones/rfs 0771 system system
@@ -230,6 +228,7 @@ service vendor.loc_launcher /vendor/bin/loc_launcher
 service vendor.qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
+    group root system radio
     oneshot
 
 service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh

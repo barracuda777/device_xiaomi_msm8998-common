@@ -19,6 +19,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+# Setup dalvik vm configs
+$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -95,6 +98,7 @@ PRODUCT_BOOT_JARS += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
+    audio.bluetooth.default \
     audio.primary.msm8998 \
     audio.r_submix.default \
     audio.usb.default \
@@ -110,14 +114,11 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@5.0-impl \
     android.hardware.audio@5.0-impl \
     android.hardware.audio@2.0-service \
+    android.hardware.bluetooth.audio@2.0-impl \
     android.hardware.soundtrigger@2.2-impl
 
 PRODUCT_PACKAGES += \
     tinymix
-
-PRODUCT_PACKAGES += \
-    audio.bluetooth.default \
-    android.hardware.bluetooth.audio@2.0-impl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -154,9 +155,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service
 
-# Dalvik
-$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk )
-
 # Display
 PRODUCT_PACKAGES += \
     gralloc.msm8998 \
@@ -189,8 +187,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_msm8998 \
-    move_fingerprint_data.sh
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_msm8998
 
 # For config.fs
 PRODUCT_PACKAGES += \
@@ -303,7 +300,10 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.2-service-qti
 
 # Properties
+include $(LOCAL_PATH)/system_prop.mk
 include $(LOCAL_PATH)/vendor_prop.mk
+
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # QCOM
 PRODUCT_COPY_FILES += \
@@ -328,8 +328,7 @@ PRODUCT_PACKAGES += \
     init.panel_info.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
-    init.qcom.sh \
-    move_widevine_data.sh
+    init.qcom.sh
 
 # RCS
 PRODUCT_PACKAGES += \
@@ -372,6 +371,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
+# TextClassifier smart selection model files
+PRODUCT_PACKAGES += \
+    textclassifier.bundle1
+
+# Trust HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
@@ -388,14 +395,6 @@ PRODUCT_PACKAGES += \
     libstdc++.vendor_32 \
     vndk-ext
 
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
-
-# TextClassifier smart selection model files
-PRODUCT_PACKAGES += \
-    textclassifier.bundle1
-
 # Wifi
 PRODUCT_PACKAGES += \
     ipacm \
@@ -407,6 +406,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
+
+PRODUCT_PACKAGES += \
+    wifi-mac-generator
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
