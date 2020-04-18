@@ -57,7 +57,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.fm.enable=true \
     vendor.audio.feature.hdmi_edid.enable=false \
     vendor.audio.feature.hdmi_passthrough.enable=false \
-    vendor.audio.feature.hfp.enable=false \
+    vendor.audio.feature.hfp.enable=true \
     vendor.audio.feature.hifi_audio.enable=false \
     vendor.audio.feature.hwdep_cal.enable=false \
     vendor.audio.feature.incall_music.enable=false \
@@ -105,7 +105,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.xm.green.r=0.97 \
     persist.vendor.camera.HAL3.enabled=1 \
     persist.vendor.camera.set.afd=4 \
-    persist.vendor.dualcam.lpm.enable=1 \
     vidc.enc.dcvs.extra-buff-count=2
 
 # CNE
@@ -128,8 +127,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.dpm.feature=1 \
-    persist.vendor.dpm.nsrm.bkg.evt=3955
+    persist.vendor.dpm.feature=0
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
