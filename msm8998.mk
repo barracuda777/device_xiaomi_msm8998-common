@@ -185,7 +185,9 @@ PRODUCT_PACKAGES += \
     GmsCore \
     GsfProxy \
     MozillaNlpBackend \
-    NominatimNlpBackend
+    NominatimNlpBackend \
+    AuroraStore \
+    AuroraDroid
 
 # DRM
 PRODUCT_PACKAGES += \
