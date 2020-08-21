@@ -520,7 +520,7 @@ lib64/vendor.qti.hardware.radio.uim@1.1.so:vendor/lib64/vendor.qti.hardware.radi
 lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so:vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so:vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
--priv-app/YouTube/YouTube.apk
+-app/YouTube/YouTube.apk
 vendor/bin/ATFWD-daemon
 vendor/bin/netmgrd
 vendor/bin/qti
